@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F7F7"
+    android:padding="16dp">
+
+    <!-- Admin Dashboard Header -->
+    <TextView
+        android:id="@+id/textViewAdminDashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin Dashboard"
+        android:textSize="28sp"
+        android:textColor="?attr/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Spinner (Dropdown) for User Options -->
+    <Spinner
+        android:id="@+id/spinnerUserOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/textViewAdminDashboard"
+        android:layout_marginStart="100dp"
+        android:entries="@array/user_options"/>
+
+    <!-- Users Header -->
+    <TextView
+        android:id="@+id/textViewUsers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FurniFind Users"
+        android:textSize="22sp"
+        android:textColor="#333333"
+        android:layout_below="@id/textViewAdminDashboard"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Users List -->
+    <ListView
+        android:id="@+id/listViewUsers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#CCCCCC"
+        android:dividerHeight="1dp"
+        android:background="#FFFFFF"
+        android:layout_below="@id/textViewUsers"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- User Actions -->
+    <LinearLayout
+        android:id="@+id/linearLayoutUserActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/listViewUsers">
+
+        <!-- View Details Button -->
+        <Button
+            android:id="@+id/buttonViewDetails"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="View Details"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Delete User Button -->
+        <Button
+            android:id="@+id/buttonDeleteUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Delete User"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</RelativeLayout>

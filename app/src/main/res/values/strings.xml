@@ -1,4 +1,9 @@
 <resources>
+        <string-array name="user_options">
+            <item>Your Name</item>
+            <item>Log Out</item>
+        </string-array>
+
     <string name="app_name">Furniture</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
