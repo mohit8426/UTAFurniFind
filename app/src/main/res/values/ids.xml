@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="textView1" type="id"></item>
+    <item name="linearLayout1" type="id"></item>
+    <item name="linearLayout2" type="id"></item>
+    <item name="textView2" type="id"></item>
+    <item name="relativeLayout1" type="id"></item>
+    <item name="relativeLayout2" type="id"></item>
+    <item name="view1" type="id"></item>
+    <item name="view2" type="id"></item>
+    <item name="view3" type="id"></item>
+    <item name="view4" type="id"></item>
+    <item name="view5" type="id"></item>
+    <item name="linearLayout3" type="id"></item>
+    <item name="linearLayout4" type="id"></item>
+    <item name="linearLayout5" type="id"></item>
+    <item name="view6" type="id"></item>
+    <item name="view7" type="id"></item>
+    <item name="textView3" type="id"></item>
+    <item name="linearLayout6" type="id"></item>
+    <item name="view8" type="id"></item>
+    <item name="linearLayout7" type="id"></item>
+    <item name="linearLayout8" type="id"></item>
+    <item name="textView4" type="id"></item>
+    <item name="linearLayout9" type="id"></item>
+    <item name="textView5" type="id"></item>
+    <item name="linearLayout10" type="id"></item>
+    <item name="textView6" type="id"></item>
+    <item name="titleTextView" type="id" />
+    <item name="separatorView" type="id" />
+    <item name="formContainer" type="id" />
+    <item name="nameEditText" type="id" />
+    <item name="emailEditText" type="id" />
+    <item name="passwordEditText" type="id" />
+    <item name="termsTextView" type="id" />
+    <item name="termsAndConditionsTextView" type="id" />
+    <item name="socialMediaContainer" type="id" />
+    <item name="facebookImageView" type="id" />
+    <item name="googleImageView" type="id" />
+    <item name="twitterImageView" type="id" />
+    <item name="loginLinkTextView" type="id" />
+    <item name="gill_furniture" type="id" />
+</resources>

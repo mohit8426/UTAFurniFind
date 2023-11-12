@@ -1,0 +1,79 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:clipToOutline="true"
+    android:layout_gravity="center">
+
+    <!-- App Logo -->
+    <ImageView
+        android:id="@+id/appLogo"
+        android:layout_width="1000dp"
+        android:layout_height="200dp"
+        android:src="@drawable/app_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:contentDescription="App Logo"/>
+
+    <!-- Divider Line -->
+    <View
+        android:id="@+id/dividerLine"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#747B92"
+        android:layout_below="@id/appLogo"
+        android:layout_marginTop="100dp"/>
+
+    <!-- Login Options -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_below="@id/dividerLine"
+        android:layout_marginTop="50dp">
+
+        <!-- Login -->
+        <Button
+            android:id="@+id/LoginOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Login"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:fontFamily="sans-serif"
+            android:fontWeight="700"
+            android:lineSpacingExtra="5sp"
+            android:layout_marginTop="0dp"/>
+
+        <!-- Admin Login -->
+        <Button
+            android:id="@+id/adminLoginOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Admin Login"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:fontFamily="sans-serif"
+            android:fontWeight="700"
+            android:lineSpacingExtra="5sp"
+            android:layout_marginTop="10dp"/>
+
+        <!-- Create Account -->
+        <Button
+            android:id="@+id/createAccountOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create your account"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:fontFamily="sans-serif"
+            android:fontWeight="700"
+            android:lineSpacingExtra="5sp"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+</RelativeLayout>

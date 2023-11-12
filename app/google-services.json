@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "984732632242",
+    "project_id": "utafurnifind",
+    "storage_bucket": "utafurnifind.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984732632242:android:c59a9aef9bbaf30bea75ab",
+        "android_client_info": {
+          "package_name": "com.example.furniture"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuhxte91QMH4UWThknwZ3pr1HK4X57Hvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

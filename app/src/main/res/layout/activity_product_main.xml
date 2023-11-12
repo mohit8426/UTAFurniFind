@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Home Text -->
+    <TextView
+        android:id="@+id/homeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:textColor="@color/pink_200"
+        android:textSize="20sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp" />
+
+    <!-- Search Tab -->
+    <LinearLayout
+        android:id="@+id/searchTab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/homeText"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_rectangle"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="40dp"
+            android:background="#D2298D9F"
+            android:contentDescription="Search Icon"
+            android:scaleType="center"
+            android:src="@drawable/search_icon"
+            tools:srcCompat="@drawable/lb_ic_in_app_search" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search furniture products"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textColorHint="#000000"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Categories -->
+    <LinearLayout
+        android:id="@+id/categoriesContainer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/searchTab"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal">
+
+        <!-- All Furniture -->
+        <FrameLayout
+            android:id="@+id/allFurnitureContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp">
+
+            <ImageView
+                android:layout_width="85dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:contentDescription="All Furniture Icon"
+                android:background="@drawable/small_rectangle"
+                android:backgroundTint="#000000"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Furniture"
+                android:textSize="14sp"
+                android:textColor="#ffff"
+                android:layout_gravity="center" />
+        </FrameLayout>
+
+        <!-- Table -->
+        <FrameLayout
+            android:id="@+id/tableContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/table_icon"
+                android:contentDescription="Table Icon"
+                android:background="@drawable/small_rectangle"
+                android:backgroundTint="#57000000"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Table"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:layout_gravity="center" />
+        </FrameLayout>
+
+        <!-- Sofa -->
+        <FrameLayout
+            android:id="@+id/sofaContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/sofa_icon"
+                android:contentDescription="Sofa Icon"
+                android:background="@drawable/small_rectangle"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sofa"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:layout_gravity="center" />
+        </FrameLayout>
+
+        <!-- Chair -->
+        <FrameLayout
+            android:id="@+id/chairContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/chair_icon"
+                android:contentDescription="Chair Icon"
+                android:background="@drawable/small_rectangle"
+                android:backgroundTint="#57000000"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chair"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:layout_gravity="center" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Card Containers for Product Showcase -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="200dp">
+
+        <!-- Table Text -->
+        <TextView
+            android:id="@+id/TableText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Table"
+            android:textColor="@color/pink_200"
+            android:textSize="20sp" />
+
+        <!-- See All Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginStart="250dp"
+            android:text="See All"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="Search Icon"
+            android:scaleType="center"
+            android:src="@drawable/search_icon"
+            tools:srcCompat="@drawable/lb_ic_nav_arrow" />
+    </LinearLayout>
+
+
+    <LinearLayout
+
+
+        android:id="@+id/cardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/categoriesContainer"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal">
+
+
+
+        <!-- Card 1 -->
+        <FrameLayout
+            android:id="@+id/card1Container"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            >
+
+            <!-- Frame 1 in Card 1 -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_image_bg"
+
+                android:contentDescription="Image 1"
+                android:scaleType="matrix"
+
+                android:src="@drawable/table2" />
+
+
+        </FrameLayout>
+
+        <!-- Card 2 -->
+        <FrameLayout
+            android:id="@+id/card2Container"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            >
+
+            <!-- Frame 1 in Card 2 -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Image 1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/table1"
+                android:background="@drawable/rounded_image_bg"/>
+
+            <!-- Frame 2 in Card 2 -->
+
+        </FrameLayout>
+    </LinearLayout>
+    <!-- Card Containers for Product Showcase -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="450dp">
+
+        <!-- Table Text -->
+        <TextView
+            android:id="@+id/NewArrivalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="New Arrival"
+            android:textColor="@color/pink_200"
+            android:textSize="20sp" />
+
+        <!-- See All Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginStart="200dp"
+            android:text="See All"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="Search Icon"
+            android:scaleType="center"
+            android:src="@drawable/search_icon"
+            tools:srcCompat="@drawable/lb_ic_nav_arrow" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/card5Container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/categoriesContainer"
+        android:layout_marginTop="300dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal">
+
+        <!-- Card 1 -->
+        <FrameLayout
+            android:id="@+id/card4Container"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp">
+
+            <!-- Frame 1 in Card 1 -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Image 1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/sofa1" />
+
+
+        </FrameLayout>
+
+        <!-- Card 2 -->
+        <FrameLayout
+            android:id="@+id/card3Container"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="1">
+
+            <!-- Frame 1 in Card 2 -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Image 1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/chair1" />
+
+            <!-- Frame 2 in Card 2 -->
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="670dp"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/home"
+            android:contentDescription="Home"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center" />
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/search"
+            android:contentDescription="Person"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/cart"
+            android:contentDescription="Cart"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/person"
+            android:contentDescription="Search"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+
+</RelativeLayout>
