@@ -22,13 +22,13 @@
         android:theme="@style/Theme.Furniture"
         tools:targetApi="31">
         <activity
-            android:name=".ProductMainActivity"
+            android:name=".MainActivity"
             android:banner="@drawable/app_icon_your_company"
             android:exported="true"
             android:icon="@drawable/app_icon_your_company"
             android:label="@string/title_activity_product_main"
             android:logo="@drawable/app_icon_your_company"
-            android:screenOrientation="landscape">
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,9 +45,17 @@
             android:name=".BrowseErrorActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_login" />
+        <activity android:name=".RegisterActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
