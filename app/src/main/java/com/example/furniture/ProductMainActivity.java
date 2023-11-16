@@ -1,123 +1,113 @@
 package com.example.furniture;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.furniture.R;
 
 public class ProductMainActivity extends AppCompatActivity {
 
-    private LinearLayout allFurnitureContainer, tableContainer, sofaContainer, chairContainer;
-    private TextView homeText;
-    private ListView listViewProducts;
-
-    private FirebaseDatabase database;
-    private DatabaseReference productsRef;
-
-    private List<String> productList;
-    private ArrayAdapter<String> productAdapter;
-
-    @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_main);
 
-        // Initialize Firebase Database
-        database = FirebaseDatabase.getInstance();
-        productsRef = database.getReference("products"); // Replace "products" with the actual Firebase database reference
+        // Set up your views and handle button clicks here
+        TextView homeText = findViewById(R.id.homeText);
 
-        // Initialize UI elements
-        homeText = findViewById(R.id.homeText);
-        allFurnitureContainer = findViewById(R.id.allFurnitureContainer);
-        tableContainer = findViewById(R.id.tableContainer);
-        sofaContainer = findViewById(R.id.sofaContainer);
-        chairContainer = findViewById(R.id.chairContainer);
-        listViewProducts = findViewById(R.id.listViewProducts);
+        // Buttons for different categories
+        Button btnAllFurniture = findViewById(R.id.btnAllFurniture);
+        Button btnTable = findViewById(R.id.btnTable);
+        Button btnSofa = findViewById(R.id.btnSofa);
+        Button btnChair = findViewById(R.id.btnChair);
 
-        // Initialize product list and adapter
-        productList = new ArrayList<>();
-        productAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, productList);
-        listViewProducts.setAdapter(productAdapter);
+        // "See All" buttons for different categories
+        Button btnSeeAll = findViewById(R.id.btnSeeAll);
+        Button btnSeeAllNewArrival = findViewById(R.id.btnSeeAllNewArrival);
 
-        // Set click listeners for category containers
-        allFurnitureContainer.setOnClickListener(new View.OnClickListener() {
+        // Example: Handle "See All" button click for the Table category
+        btnSeeAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fetchProductsByCategory("All Furniture");
+                displayAllItems("All Furniture");
             }
         });
 
-        tableContainer.setOnClickListener(new View.OnClickListener() {
+        // Example: Handle "See All" button click for the New Arrival category
+        btnSeeAllNewArrival.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fetchProductsByCategory("Table");
+                displayAllItems("New Arrival");
             }
         });
 
-        sofaContainer.setOnClickListener(new View.OnClickListener() {
+        // Example: Handle click for the "All Furniture" category button
+        btnAllFurniture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fetchProductsByCategory("Sofa");
+                displayAllItems("All Furniture");
             }
         });
 
-        chairContainer.setOnClickListener(new View.OnClickListener() {
+        // Example: Handle click for the "Table" category button
+        btnTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fetchProductsByCategory("Chair");
+                displayAllItems("Table");
             }
         });
 
-        // Set item click listener for the product list
-        listViewProducts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        // Example: Handle click for the "Sofa" category button
+        btnSofa.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                String selectedProduct = productList.get(position);
-                Toast.makeText(ProductMainActivity.this, "Selected Product: " + selectedProduct, Toast.LENGTH_SHORT).show();
-                // Implement logic to navigate to the detailed product view or perform other actions
+            public void onClick(View view) {
+                displayAllItems("Sofa");
             }
         });
 
-        // Fetch all products initially
-        fetchProductsByCategory("All Furniture");
+        // Example: Handle click for the "Chair" category button
+        btnChair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayAllItems("Chair");
+            }
+        });
+
+        // Example: Handle card click for the first card
+        FrameLayout card1Container = findViewById(R.id.card1Container);
+        card1Container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToItemDetails("Table", 1);
+            }
+        });
+
+        // Example: Handle card click for the second card
+        FrameLayout card2Container = findViewById(R.id.card2Container);
+        card2Container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToItemDetails("Table", 2);
+            }
+        });
+
+        // You can add similar click listeners for other cards as needed
     }
 
-    private void fetchProductsByCategory(final String category) {
-        productsRef.child(category).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                productList.clear();
-                for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
-                    String productName = productSnapshot.child("name").getValue(String.class);
-                    productList.add(productName);
-                }
-                productAdapter.notifyDataSetChanged();
-                homeText.setText(category); // Update the category title
-            }
+    // Example method to display all items for a specific category
+    private void displayAllItems(String category) {
+        // Replace this with your logic to load and display all items for the selected category
+        // You might want to use a RecyclerView or another appropriate view for displaying the items
+    }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(ProductMainActivity.this, "Failed to fetch products: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+    // Example method to navigate to item details
+    private void navigateToItemDetails(String category, int itemId) {
+        // Replace this with your logic to navigate to the details view of the selected item
+        // You might want to pass the category and itemId as extras to the details activity
     }
 }
