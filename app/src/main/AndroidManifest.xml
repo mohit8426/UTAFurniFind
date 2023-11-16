@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -20,7 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Furniture"
         tools:targetApi="31">
-
+        <activity
+            android:name=".SecondActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:banner="@drawable/app_icon_your_company"
@@ -31,45 +34,41 @@
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".RegisterActivity"
             android:exported="true">
+
             <!-- Add any necessary banner, icon, or label specific to RegisterActivity here -->
         </activity>
         <activity
             android:name=".AdminLoginActivity"
             android:exported="true">
+
             <!-- Add any necessary banner, icon, or label specific to RegisterActivity here -->
         </activity>
-
         <activity
             android:name=".ProductMainActivity"
             android:exported="true">
+
             <!-- Add any necessary banner, icon, or label specific to RegisterActivity here -->
         </activity>
-
         <activity
             android:name=".DetailsActivity"
             android:exported="false" />
-
         <activity
             android:name=".PlaybackActivity"
             android:exported="false" />
-
         <activity
             android:name=".BrowseErrorActivity"
             android:exported="false" />
-
         <activity
             android:name=".LoginActivity"
             android:exported="true"
             android:label="@string/title_activity_login" />
-
-
     </application>
 
 </manifest>
