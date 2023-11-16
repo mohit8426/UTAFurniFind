@@ -1,6 +1,9 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/rootLayout"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:clipToOutline="true"
@@ -74,6 +77,7 @@
             android:fontFamily="sans-serif"
             android:fontWeight="700"
             android:lineSpacingExtra="5sp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            tools:ignore="DuplicateIds" />
     </LinearLayout>
 </RelativeLayout>

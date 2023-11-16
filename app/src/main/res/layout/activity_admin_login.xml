@@ -36,7 +36,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@id/create_account1"
         android:layout_marginTop="8dp">
         <!-- Name Input Field -->
 
@@ -57,7 +56,7 @@
                 android:fontFamily="sans-serif"
                 android:fontWeight="400"/>
             <EditText
-                android:id="@+id/email_input_field"
+                android:id="@+id/admin_email_input_field"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="#E0E1E1"
@@ -81,7 +80,7 @@
                 android:fontFamily="sans-serif"
                 android:fontWeight="400"/>
             <EditText
-                android:id="@+id/password_input_field"
+                android:id="@+id/admin_password_input_field"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="#E0E1E1"
@@ -92,6 +91,7 @@
 
 
     <Button
+        android:id="@+id/admin_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
