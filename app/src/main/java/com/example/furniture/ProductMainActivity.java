@@ -1,14 +1,14 @@
 package com.example.furniture;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.furniture.R;
 
 public class ProductMainActivity extends AppCompatActivity {
 
@@ -83,7 +83,7 @@ public class ProductMainActivity extends AppCompatActivity {
         card1Container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigateToItemDetails("Table", 1);
+                addToCart("Table", 1);
             }
         });
 
@@ -92,11 +92,20 @@ public class ProductMainActivity extends AppCompatActivity {
         card2Container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigateToItemDetails("Table", 2);
+                addToCart("Table", 2);
             }
         });
 
         // You can add similar click listeners for other cards as needed
+
+        // Example: Handle click for the shopping cart icon
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) ImageView cartImageView = findViewById(R.id.cartImageView);
+        cartImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openShoppingCart();
+            }
+        });
     }
 
     // Example method to display all items for a specific category
@@ -105,9 +114,16 @@ public class ProductMainActivity extends AppCompatActivity {
         // You might want to use a RecyclerView or another appropriate view for displaying the items
     }
 
-    // Example method to navigate to item details
-    private void navigateToItemDetails(String category, int itemId) {
-        // Replace this with your logic to navigate to the details view of the selected item
-        // You might want to pass the category and itemId as extras to the details activity
+    // Example method to add an item to the shopping cart
+    private void addToCart(String category, int itemId) {
+        // Replace this with your logic to add the selected item to the shopping cart
+        // You might want to manage the shopping cart state using a database or a data structure
+    }
+
+    // Example method to open the shopping cart activity
+    private void openShoppingCart() {
+        // Replace this with your logic to open the shopping cart activity
+        Intent intent = new Intent(ProductMainActivity.this, ShoppingCartActivity.class);
+        startActivity(intent);
     }
 }

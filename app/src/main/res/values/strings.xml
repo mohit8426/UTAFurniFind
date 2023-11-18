@@ -1,8 +1,8 @@
 <resources>
-        <string-array name="user_options">
-            <item>Your Name</item>
-            <item>Log Out</item>
-        </string-array>
+    <string-array name="user_options">
+        <item>Your Name</item>
+        <item>Log Out</item>
+    </string-array>
 
     <string name="app_name">Furniture</string>
     <string name="title_activity_login">LoginActivity</string>
@@ -31,4 +31,5 @@
     <!-- Error messages -->
     <string name="error_fragment_message">An error occurred</string>
     <string name="dismiss_error">Dismiss</string>
+    <string name="default_web_client_id">984732632242-hhhpepfrr8u3hrlb91u3vai39uhhodup.apps.googleusercontent.com</string>
 </resources>
