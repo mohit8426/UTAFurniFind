@@ -24,7 +24,7 @@
         android:layout_height="100dp"
         android:layout_below="@id/textViewProfile"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="90dp"
         android:background="@drawable/person"
         android:contentDescription="Profile Image" />
 
@@ -33,8 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@id/imageViewProfile"
-        android:layout_marginTop="16dp">
+
+        android:layout_marginTop="300dp">
 
         <!-- My Orders -->
         <TextView
@@ -58,53 +58,4 @@
     </LinearLayout>
 
     <!-- Bottom Navigation -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="670dp"
-        android:orientation="horizontal"
-        android:background="#FFFFFF"
-        android:elevation="8dp"
-        android:padding="8dp">
-
-        <!-- Home -->
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/home"
-            android:contentDescription="Home"
-            android:scaleType="fitCenter"
-            android:layout_gravity="center" />
-
-        <!-- Search -->
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/search"
-            android:contentDescription="Search"
-            android:scaleType="fitCenter"
-            android:layout_gravity="center" />
-
-        <!-- Cart -->
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/cart"
-            android:contentDescription="Cart"
-            android:scaleType="fitCenter"
-            android:layout_gravity="center" />
-
-        <!-- Person -->
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/person"
-            android:contentDescription="Person"
-            android:scaleType="fitCenter"
-            android:layout_gravity="center" />
-    </LinearLayout>
 </RelativeLayout>

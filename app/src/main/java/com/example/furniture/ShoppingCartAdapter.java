@@ -29,9 +29,9 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
         CartItem cartItem = cartItems.get(position);
 
         // Bind data to the views
-        holder.itemNameTextView.setText(cartItem.getItemName());
-        holder.quantityTextView.setText("Quantity: " + cartItem.getQuantity());
-        holder.priceTextView.setText("Price: $" + cartItem.getPrice());
+//        holder.itemNameTextView.setText(cartItem.getItemName());
+     //   holder.quantityTextView.setText("Quantity: " + cartItem.getQuantity());
+      //  holder.priceTextView.setText("Price: $" + cartItem.getPrice());
     }
 
     @Override

@@ -52,6 +52,16 @@
             <!-- Add any necessary banner, icon, or label specific to RegisterActivity here -->
         </activity>
         <activity
+            android:name=".ShoppingCartActivity"
+            android:exported="true">
+            <!-- Add any necessary banner, icon, or label specific to RegisterActivity here -->
+        </activity>
+        <activity
+            android:name=".PersonActivity"
+            android:exported="true">
+            <!-- Add any necessary banner, icon, or label specific to RegisterActivity here -->
+        </activity>
+        <activity
             android:name=".AdminDashboardActivity"
             android:exported="true">
             <!-- Add any necessary banner, icon, or label specific to RegisterActivity here -->

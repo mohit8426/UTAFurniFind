@@ -1,13 +1,16 @@
 package com.example.furniture;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import com.google.firebase.firestore.FirebaseFirestore;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -75,26 +78,59 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
+//    private void registerUser() {
+//        // Get user input
+//        String name = nameInput.getText().toString().trim();
+//        String email = emailInput.getText().toString().trim();
+//        String password = passwordInput.getText().toString().trim();
+//
+//        // Check if any field is empty
+//        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+//            Toast.makeText(RegisterActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//
+//        // Register user with Firebase Authentication
+//        mAuth.createUserWithEmailAndPassword(email, password)
+//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        if (task.isSuccessful()) {
+//                            // Registration successful
+//                            Toast.makeText(RegisterActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+//                            // You can add additional logic here, such as navigating to another activity
+//                        } else {
+//                            // If registration fails, display a message to the user.
+//                            Toast.makeText(RegisterActivity.this, "Registration failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
+//    }
+
     private void registerUser() {
         // Get user input
-        String name = nameInput.getText().toString().trim();
-        String email = emailInput.getText().toString().trim();
+        String Name = nameInput.getText().toString().trim();
+        String Email = emailInput.getText().toString().trim();
         String password = passwordInput.getText().toString().trim();
 
         // Check if any field is empty
-        if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+        if (Name.isEmpty() || Email.isEmpty() || password.isEmpty()) {
             Toast.makeText(RegisterActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // Register user with Firebase Authentication
-        mAuth.createUserWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(Email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Registration successful
                             Toast.makeText(RegisterActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+
+                            // Add user information to Firestore
+                            addUserToFirestore(Name, Email);
+
                             // You can add additional logic here, such as navigating to another activity
                         } else {
                             // If registration fails, display a message to the user.
@@ -104,6 +140,24 @@ public class RegisterActivity extends AppCompatActivity {
                 });
     }
 
+    private void addUserToFirestore(String name, String email) {
+        // Access a Cloud Firestore instance
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        // Create a new user object with the provided information
+        User user = new User(name, email);
+
+        // Add a new document with a generated ID
+        db.collection("users")
+                .document(mAuth.getCurrentUser().getUid())
+                .set(user)
+                .addOnSuccessListener(documentReference -> {
+                    Log.d(TAG, "User added to Firestore successfully");
+                })
+                .addOnFailureListener(e -> {
+                    Log.w(TAG, "Error adding user to Firestore", e);
+                });
+    }
     private void googleSignUp() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("YOUR_WEB_CLIENT_ID")

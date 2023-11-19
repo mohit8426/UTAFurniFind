@@ -38,12 +38,12 @@
             android:background="#D2298D9F"
             android:contentDescription="Search Icon"
             android:scaleType="center"
-            tools:srcCompat="@drawable/lb_ic_in_app_search" />
+            tools:srcCompat="@android:drawable/arrow_down_float" />
 
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Search furniture products"
+            android:hint="Search furniture products the categories below"
             android:minHeight="48dp"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
@@ -112,40 +112,6 @@
     </LinearLayout>
 
     <!-- Card Containers for Product Showcase -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="200dp">
-
-        <!-- Table Text -->
-        <TextView
-            android:id="@+id/TableText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="Table"
-            android:textColor="@color/pink_200"
-            android:textSize="20sp" />
-
-        <!-- See All Button -->
-        <Button
-            android:id="@+id/btnSeeAll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginStart="220dp"
-            android:text="See All"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:contentDescription="Search Icon"
-            android:scaleType="center"
-            tools:srcCompat="@drawable/lb_ic_nav_arrow" />
-    </LinearLayout>
 
 
     <LinearLayout
@@ -154,7 +120,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/categoriesContainer"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:orientation="horizontal">
@@ -169,14 +135,31 @@
 
             <!-- Frame 1 in Card 1 -->
             <ImageView
+                android:id="@+id/productImageView1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/rounded_image_bg"
                 android:contentDescription="Image 1"
                 android:scaleType="matrix"
-                android:src="@drawable/table2" />
+                />
+
+            <!-- Text View for Product Name -->
+
+
+            <!-- Text View for Product Description -->
+            <TextView
+                android:id="@+id/productDescTextView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="4dp"
+                android:background="#80000000"
+                android:text="Product Description"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
 
         </FrameLayout>
+
 
         <!-- Card 2 -->
         <FrameLayout
@@ -185,68 +168,126 @@
             android:layout_height="150dp"
             android:layout_weight="1">
 
-            <!-- Frame 1 in Card 2 -->
             <ImageView
+                android:id="@+id/productImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/rounded_image_bg"
                 android:contentDescription="Image 1"
-                android:scaleType="fitCenter"
-                android:src="@drawable/table1"
-                android:background="@drawable/rounded_image_bg"/>
+                android:scaleType="matrix"
+                />
 
-            <!-- Frame 2 in Card 2 -->
+            <!-- Text View for Product Name -->
+
+
+            <!-- Text View for Product Description -->
+            <TextView
+                android:id="@+id/productDescTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="4dp"
+                android:background="#80000000"
+                android:text="Product Description"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
 
         </FrameLayout>
     </LinearLayout>
-    <!-- Card Containers for Product Showcase -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="450dp">
-
-        <!-- Table Text -->
-        <TextView
-            android:id="@+id/NewArrivalText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="New Arrival"
-            android:textColor="@color/pink_200"
-            android:textSize="20sp" />
-
-        <!-- See All Button -->
-        <Button
-            android:id="@+id/btnSeeAllNewArrival"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginStart="160dp"
-            android:text="See All"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            tools:ignore="TouchTargetSizeCheck" />
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:contentDescription="Search Icon"
-            android:scaleType="center"
-            tools:srcCompat="@drawable/lb_ic_nav_arrow" />
-    </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/card5Container"
+
+        android:id="@+id/cardContainer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/categoriesContainer"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="320dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:orientation="horizontal">
 
         <!-- Card 1 -->
         <FrameLayout
-            android:id="@+id/card4Container"
+            android:id="@+id/card1Container1"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp">
+
+            <!-- Frame 1 in Card 1 -->
+
+            <ImageView
+                android:id="@+id/productImageView2"
+                android:layout_width="match_parent"
+                android:layout_height="143dp"
+                android:background="@drawable/rounded_image_bg"
+                android:contentDescription="Image 1"
+                android:scaleType="matrix" />
+            <!-- Text View for Product Name -->
+
+
+            <!-- Text View for Product Description -->
+            <TextView
+                android:id="@+id/productDescTextView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="4dp"
+                android:background="#80000000"
+                android:text="Product Description"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+        </FrameLayout>
+
+
+        <!-- Card 2 -->
+        <FrameLayout
+            android:id="@+id/card2Container1"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="1">
+
+
+
+            <!-- Text View for Product Name -->
+            <ImageView
+                android:id="@+id/productImageView3"
+                android:layout_width="match_parent"
+                android:layout_height="143dp"
+                android:background="@drawable/rounded_image_bg"
+                android:contentDescription="Image 1"
+                android:scaleType="matrix" />
+
+            <!-- Text View for Product Description -->
+            <TextView
+                android:id="@+id/productDescTextView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="4dp"
+                android:background="#80000000"
+                android:text="Product Description"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:id="@+id/cardContainer2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/categoriesContainer"
+        android:layout_marginTop="160dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal">
+
+        <!-- Card 1 -->
+        <FrameLayout
+            android:id="@+id/card1Container2"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_weight="1"
@@ -254,32 +295,67 @@
 
             <!-- Frame 1 in Card 1 -->
             <ImageView
+                android:id="@+id/productImageView4"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="143dp"
+                android:background="@drawable/rounded_image_bg"
                 android:contentDescription="Image 1"
-                android:scaleType="fitCenter"
-                android:src="@drawable/sofa1" />
+                android:scaleType="matrix" />
+
+            <!-- Text View for Product Name -->
+
+
+            <!-- Text View for Product Description -->
+            <TextView
+                android:id="@+id/productDescTextView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="4dp"
+                android:background="#80000000"
+                android:text="Product Description"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
         </FrameLayout>
+
 
         <!-- Card 2 -->
         <FrameLayout
-            android:id="@+id/card3Container"
+            android:id="@+id/card2Container2"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_weight="1">
 
-            <!-- Frame 1 in Card 2 -->
             <ImageView
+                android:id="@+id/productImageView5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/rounded_image_bg"
                 android:contentDescription="Image 1"
-                android:scaleType="fitCenter"
-                android:src="@drawable/chair1" />
+                android:scaleType="matrix"
+                />
 
-            <!-- Frame 2 in Card 2 -->
+            <!-- Text View for Product Name -->
+
+
+            <!-- Text View for Product Description -->
+            <TextView
+                android:id="@+id/productDescTextView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="4dp"
+                android:background="#80000000"
+                android:text="Product Description"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
 
         </FrameLayout>
     </LinearLayout>
+
+
+    <!-- Card Containers for Product Showcase -->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -299,14 +375,7 @@
             android:scaleType="fitCenter"
             android:layout_gravity="center" />
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/search"
-            android:contentDescription="Person"
-            android:scaleType="fitCenter"
-            android:layout_gravity="center" />
+
 
         <ImageView
             android:id="@+id/cartImageView"
@@ -319,6 +388,7 @@
             android:layout_gravity="center" />
 
         <ImageView
+            android:id="@+id/yourImageViewId"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

@@ -41,4 +41,6 @@
     <item name="loginLinkTextView" type="id" />
     <item name="gill_furniture" type="id" />
     <item name="main_browse_fragment" type="id" />
+    <item name="textViewLogOut" type="id" />
+    <item name="textViewMyOrders" type="id" />
 </resources>

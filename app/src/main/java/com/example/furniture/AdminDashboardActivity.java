@@ -1,114 +1,96 @@
 package com.example.furniture;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
+import android.util.Log;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.example.furniture.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class AdminDashboardActivity extends AppCompatActivity {
 
-    private TextView textViewAdminDashboard, textViewUsers;
     private Spinner spinnerUserOptions;
     private ListView listViewUsers;
-    private Button buttonViewDetails, buttonDeleteUser;
+    private ArrayAdapter<String> usersAdapter;
 
-    private FirebaseDatabase database;
-    private DatabaseReference usersRef;
-    private List<String> userList;
-    private ArrayAdapter<String> userAdapter;
+    private FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_dashboard);
 
-        // Initialize Firebase Database
-        database = FirebaseDatabase.getInstance();
-        usersRef = database.getReference("users"); // Replace "users" with the actual Firebase database reference
+        // Initialize Firebase Firestore
+        firestore = FirebaseFirestore.getInstance();
 
         // Initialize UI elements
-        textViewAdminDashboard = findViewById(R.id.textViewAdminDashboard);
-        textViewUsers = findViewById(R.id.textViewUsers);
         spinnerUserOptions = findViewById(R.id.spinnerUserOptions);
         listViewUsers = findViewById(R.id.listViewUsers);
-        buttonViewDetails = findViewById(R.id.buttonViewDetails);
-        buttonDeleteUser = findViewById(R.id.buttonDeleteUser);
 
-        // Initialize user list and adapter
-        userList = new ArrayList<>();
-        userAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, userList);
-        listViewUsers.setAdapter(userAdapter);
+        // Set up the adapter for the users list
+        List<String> usersList = new ArrayList<>();
+        usersAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, usersList);
+        listViewUsers.setAdapter(usersAdapter);
 
-        // Set up spinner with user options
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.user_options, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerUserOptions.setAdapter(adapter);
+        // Fetch users from Firestore
+        fetchUsersFromFirestore();
 
-        // Set item click listener for the user list
-        listViewUsers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                // Handle item click (e.g., show user details)
-                String selectedUser = userList.get(position);
-                Toast.makeText(AdminDashboardActivity.this, "Selected User: " + selectedUser, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        // Set click listener for View Details button
-        buttonViewDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Handle View Details button click
-                // You can implement the logic to view details for the selected user
-            }
-        });
-
-        // Set click listener for Delete User button
-        buttonDeleteUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Handle Delete User button click
-                // You can implement the logic to delete the selected user
-            }
-        });
-
-        // Fetch users from Firebase and update the list
-        fetchUsersFromFirebase();
+        // You can add more functionality related to the spinner and other UI elements as needed
     }
 
-    private void fetchUsersFromFirebase() {
-        usersRef.addValueEventListener(new ValueEventListener() {
+
+    private void fetchUsersFromFirestore() {
+        // Reference to the "users" collection
+        CollectionReference usersCollection = firestore.collection("users");
+
+        // Fetch all documents in the "users" collection
+        usersCollection.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                userList.clear();
-                for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                    String userName = userSnapshot.child("name").getValue(String.class);
-                    userList.add(userName);
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    List<String> usersList = new ArrayList<>();
+
+                    // Loop through the documents and add user names to the list
+                    for (DocumentSnapshot document : task.getResult()) {
+                        Log.e("document", document.toString());
+                        String userName = document.getString("name").toLowerCase(Locale.ROOT);
+                        usersList.add(userName);
+                        Log.e("FirestoreError", "Error Users: ", task.getException());
+
+
+                    }
+
+                    // Update the UI with the fetched users
+                    updateUsersList(usersList);
+                } else {
+                    Log.e("FirestoreError", "Error getting documents: ", task.getException());
+                    Toast.makeText(AdminDashboardActivity.this, "Error fetching users", Toast.LENGTH_SHORT).show();
                 }
-                userAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(AdminDashboardActivity.this, "Failed to fetch users: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
+
+    private void updateUsersList(List<String> usersList) {
+        // Clear the existing list and add the new users
+        usersAdapter.clear();
+        usersAdapter.addAll(usersList);
+        usersAdapter.notifyDataSetChanged();
+    }
+
+
 }
